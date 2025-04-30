@@ -1,6 +1,8 @@
+import styles from "./SearchBox.module.css";
+
 export default function SearchBox({ filter, onFilterChange }) {
   return (
-    <div>
+    <div className={styles.search}>
       <label>
         Find contacts by name:
         <input

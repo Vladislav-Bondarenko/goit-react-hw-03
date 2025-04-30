@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
+import "./App.css";
 
 const initialContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -29,16 +30,16 @@ export default function App() {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-    useEffect(() => {
-      localStorage.setItem("contacts", JSON.stringify(contacts));
-    }, [contacts]);
-    
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
   const addContact = (newContact) => {
     setContacts((prev) => [...prev, newContact]);
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={addContact} />
       <SearchBox filter={filter} onFilterChange={handleFilterChange} />
